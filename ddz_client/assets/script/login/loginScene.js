@@ -6,7 +6,7 @@ cc.Class({
     },
 
     // LIFE-CYCLE CALLBACKS:
-
+    //预加载
     onLoad:function () {
         if(cc.sys.os !== "Windows"){
             this.node.getChildByName('guest_button').active = false;
