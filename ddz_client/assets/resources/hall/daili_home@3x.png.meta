@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "7f086246-ed81-4cc8-91e5-fea7c78544ae",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "daili_home@3x": {
+      "ver": "1.0.3",
+      "uuid": "a18cdaec-6c6e-4585-95e4-0f9749e624f7",
+      "rawTextureUuid": "7f086246-ed81-4cc8-91e5-fea7c78544ae",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": 0,
+      "trimX": 7,
+      "trimY": 1,
+      "width": 240,
+      "height": 121,
+      "rawWidth": 251,
+      "rawHeight": 123,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
