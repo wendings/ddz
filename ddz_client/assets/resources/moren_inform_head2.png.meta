@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "cf208f5b-ec16-41bc-a921-16163b6bf6cc",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "moren_inform_head2": {
+      "ver": "1.0.3",
+      "uuid": "76867994-3c5f-4827-8615-f9d98cdd1a64",
+      "rawTextureUuid": "cf208f5b-ec16-41bc-a921-16163b6bf6cc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 249,
+      "height": 249,
+      "rawWidth": 250,
+      "rawHeight": 250,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

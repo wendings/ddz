@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "495c350c-db5e-4dca-8bfa-03f4dbdf2e87",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "heitao12_self": {
+      "ver": "1.0.3",
+      "uuid": "a9472223-fc7a-442a-ae7b-82784663ec06",
+      "rawTextureUuid": "495c350c-db5e-4dca-8bfa-03f4dbdf2e87",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 155,
+      "height": 226,
+      "rawWidth": 155,
+      "rawHeight": 226,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
