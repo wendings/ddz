@@ -15,8 +15,34 @@ const socket = function () {
                 cb(null,data.data)
             }
         }
+        let type = data.type;
     });
+    _socket.on('connection',()=>{
+        console.log('链接成功');
+    })
 
+    const notify = function (type,data,callBackIndex) {
+        _socket.emit('notify',{type:type,data:data,callBackIndex:callBackIndex});
+    };
+
+    const request = function (data,cb) {
+        _callBackMapIndex++;
+        _callBackMap[_callBackMapIndex] = cb;
+        notify(type,data,_callBackMapIndex)
+    };
+
+    that.requestLogin = function (data,cb) {
+         request('login',data,cb);
+    }
+    that.requestCreateUser = function (data,cb) {
+        request('create_user',data,cb)
+    }
+
+    that.requestWxLogin = function(data,cb){
+
+    }
+
+    return that;
 
 }
 export default socket;

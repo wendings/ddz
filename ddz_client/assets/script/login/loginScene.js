@@ -1,3 +1,4 @@
+import  global from './../global'
 cc.Class({
     extends: cc.Component,
 
@@ -13,8 +14,11 @@ cc.Class({
         }else{
             this.node.getChildByName('wechat_button').active = false;
         }
+        this.node.getChildByName('guest_button').active = false;
+        this.node.getChildByName('wechat_button').active = true;
     },
     start () {
+        // let account = cc.sys.localStorage.getItem('account');
 
     },
     onButtonClick:function (event,customData) {
@@ -22,6 +26,9 @@ cc.Class({
         switch (customData){
             case 'wechat':
                 console.log('u click wechat button');
+                global.socket.requestWxLogin((err,result)=>{
+
+                });
                 this.loadHall();
                 break;
             case 'guest':
