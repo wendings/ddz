@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 let client = undefined;
 const query = function (sql,cb) {
+    console.log('@ '+ sql);
     client.getConnection((err,connection)=>{
         if(err){
             console.log('get connection = ' +err);
@@ -16,6 +17,7 @@ const query = function (sql,cb) {
                     }
                 }else{
                     if(cb){
+                        // console.log('result = '+JSON.stringify(result))
                         cb(null,result);
                     }
                 }
@@ -25,8 +27,8 @@ const query = function (sql,cb) {
     })
 };
 exports.getPlayerInfo = function (key,cb) {
-    let sql = 'select * from ws_users where uid = '+ key + ';';
-    myDB.query(sql,cb);
+    let sql = 'select * from t_account where unique_id = '+ key + ';';
+    query(sql,cb);
 };
 exports.createPlayerInfo = function (uniqueID, accountID, nickName, goldCount, avatarUrl) {
     let sql = 'insert into t_account(unique_id, account_id, nick_name,gold_count, avatar_url) values('
@@ -49,6 +51,14 @@ exports.createPlayerInfo = function (uniqueID, accountID, nickName, goldCount, a
         }
 
     })
+};
+exports.getPlayerInfoWithUniqueID = function (key,cb) {
+    let sql = 'select * from t_account where unique_id = '+ key +';';
+    query(sql,cb);
+};
+exports.getMessage = function (cb) {
+    let sql = 'select * from t_message order by id desc limit 0,1';
+    query(sql,cb);
 };
 
 exports.connect = function (config) {

@@ -629,7 +629,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "gemsLabel",
+    "_name": "goldLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 6
@@ -2369,11 +2369,11 @@
     "getIdLabel": {
       "__id__": 14
     },
-    "gemsLabel": {
+    "goldLabel": {
       "__id__": 16
     },
     "headSprite": {
-      "__id__": 17
+      "__id__": 18
     },
     "noticeLabel": {
       "__id__": 44
