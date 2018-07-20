@@ -7,7 +7,9 @@ cc.Class({
         getIdLabel:cc.Label,
         goldLabel:cc.Label,
         headSprite:cc.Sprite,
-        noticeLabel:cc.Label
+        noticeLabel:cc.Label,
+        createRoomPrefab:cc.Prefab,
+        joinRoomPrefab:cc.Prefab
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -37,9 +39,21 @@ cc.Class({
             }else{
                 this.noticeLabel.string = data;
             }
-
         })
-
+    },
+    onButtonClick:function (event,customData) {
+        switch (customData){
+            case 'create_room':
+                let create_room = cc.instantiate();
+                create_room.parent = this.node;
+                break;
+            case 'join_room':
+                break;
+            case 'back_room':
+                break;
+            default:
+                break;
+        }
     },
 
     update (dt) {
