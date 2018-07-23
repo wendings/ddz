@@ -7,7 +7,7 @@ const socket = function () {
 
     let _socket = io(defines.serverUrl);
     _socket.on('notify',(data)=>{
-        console.log('notity = '+JSON.stringify(data));
+        console.log('@_@  notity = '+JSON.stringify(data));
         _callBackMapIndex = data.callBackIndex;
         if(_callBackMap.hasOwnProperty(_callBackMapIndex)){
             let cb = _callBackMap[_callBackMapIndex];
@@ -39,18 +39,29 @@ const socket = function () {
     that.requestLogin = function (data,cb) {
         console.log("@ in requestLogin");
          request('login',data,cb);
-    }
+    };
     that.requestCreateUser = function (data,cb) {
         request('create_user',data,cb)
-    }
+    };
     that.requestMsg = function (cb) {
         request('msg',{},cb);
-    }
+    };
 
     that.requestWxLogin = function(data,cb){
         request('login',data,cb);
-    }
+    };
+    that.requestCreateRoom = function(data,cb){
+        request('create_room',data,cb);
+    };
+    that.requestJoinRoom = function (data,cb) {
+        request('join_room',data,cb);
+    };
 
+
+//--------------------------------------------------------------
+    that.onPlayerJoinRoom = function (cb) {
+        _event.on('player_join_room',cb);
+    };
     return that;
 
 }

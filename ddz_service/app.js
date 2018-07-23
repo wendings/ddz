@@ -66,7 +66,7 @@ app.on('connection',function (socket) {
                 var callBackIndex = notifyData.callBackIndex;
                 myDB.getMessage((err,data)=>{
                     console.log('@@@@msg = ',JSON.stringify(data,'callBackIndex = '+notifyData.callBackIndex));
-                    gameController.notify('msg',data[0]['msg'],socket,callBackIndex);
+                    gameController.notify('msg',data[0],socket,callBackIndex);
                 })
                 break;
             default:

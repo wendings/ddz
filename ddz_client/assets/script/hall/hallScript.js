@@ -37,14 +37,15 @@ cc.Class({
             if(err){
                 console.log('获取msg失败');
             }else{
-                this.noticeLabel.string = data;
+                console.log("requestMsg = " + data);
+                this.noticeLabel.string = data.msg;
             }
         })
     },
     onButtonClick:function (event,customData) {
         switch (customData){
             case 'create_room':
-                let create_room = cc.instantiate();
+                let create_room = cc.instantiate(this.createRoomPrefab);
                 create_room.parent = this.node;
                 break;
             case 'join_room':
