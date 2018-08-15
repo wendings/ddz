@@ -1,13 +1,16 @@
 const EventListener = function (obj) {
     // const that = {};
     let Register = {};
+    // on : 注册method
     obj.on = function (type, method) {
+        console.log('event type = '+ JSON.stringify(type));
         if (Register.hasOwnProperty(type)){
             Register[type].push(method);
         }else {
             Register[type] = [method];
         }
     };
+    // fire : 取出handler ，处理args
     obj.fire = function (type) {
         if (Register.hasOwnProperty(type)){
             let handlerList = Register[type];

@@ -38,13 +38,13 @@ app.on('connection',function (socket) {
                         console.log('@ data = ' + JSON.stringify(data));
                         if(data.length === 0){
                             let loginData = notifyData.data;
-                            myDB.createPlayerInfo( //创建数据库信息
-                                loginData.uniqueID,
-                                loginData.accountID,
-                                loginData.nickName,
-                                defines.defaultGoldCount,
-                                loginData.avatarUrl
-                            );
+                            // myDB.createPlayerInfo( //创建数据库信息
+                            //     loginData.uniqueID,
+                            //     loginData.accountID,
+                            //     loginData.nickName,
+                            //     defines.defaultGoldCount,
+                            //     loginData.avatarUrl
+                            // );
                             gameController.createPlayer({//创建数据模型playerData
                                 'unique_id':notifyData.data.uniqueID,
                                 'account_id':notifyData.data.accountID,

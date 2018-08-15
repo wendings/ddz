@@ -22,3 +22,4 @@ exports.createRoomConfig = {
         rate:4//倍率
     },
 };
+exports.inningsNum = 8;

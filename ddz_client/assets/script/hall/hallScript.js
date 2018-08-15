@@ -17,8 +17,6 @@ cc.Class({
     onLoad:function () {
         console.log(' hall has global player data ='+ JSON.stringify(global.playerData));
         this.init();
-        // this.headSprite=;
-        // this.noticeLabel='';
     } ,
 
     init:function () {
@@ -49,6 +47,8 @@ cc.Class({
                 create_room.parent = this.node;
                 break;
             case 'join_room':
+                let join_room = cc.instantiate(this.joinRoomPrefab);
+                join_room.parent = this.node;
                 break;
             case 'back_room':
                 break;

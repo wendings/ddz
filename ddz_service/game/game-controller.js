@@ -33,6 +33,7 @@ exports.createRoom = function(data,player,cb){
     }
     let room = Room(data,player);
     _roomList.push(room);
+    console.log('@@@@ room = ',JSON.stringify(room));
     if(cb){
         cb(null,room.roomID);
     }
@@ -41,12 +42,12 @@ exports.createRoom = function(data,player,cb){
 //加入房间：
 // 根据传入的roomID 在遍历roomList查找，如果找到就设置 let room = _roomList[i]; 没有cb（‘no have this room’）
 // 如果房间人数满3人返回空，否者调用room.joinPlayer() 加入房间
-
-
 exports.joinRoom = function (data,player,cb) {
     console.log('joinRoom data = ' + JSON.stringify(data) +' 数据类型 typeOf = '+ typeof  data);
     for(let i = 0;i<_roomList.length;i++){
+        console.log('_roomList = ',_roomList[i],' data = '+data + typeof data);
         if(_roomList[i].roomID === data){
+            console.log(_roomList[i].roomID,data);
             let room = _roomList[i];
 
             if(room.getPlayerCount() ===3){
@@ -62,6 +63,7 @@ exports.joinRoom = function (data,player,cb) {
                     data:{bottom:room.bottom,rate:room.rate}
                 })
             }
+            return;
         }
     }
     if(cb){
