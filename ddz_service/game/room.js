@@ -283,20 +283,59 @@ module.exports = function (spec,player) {
         }else{
             //出牌
             let cardsValue = _carder.isCanPushCards(cards);
-            // 开局第一次出牌 或者 两个玩家都不出牌 则不需要比牌直接出牌
-            if(_currentPlayerPushCardList === undefined || _notPushCardNumber ===2 ){
-                if(cb){
-                    cb(null,'push card success');
+            if(cardsValue){
+                // 开局第一次出牌 或者 两个玩家都不出牌 则不需要比牌直接出牌
+                if(_currentPlayerPushCardList === undefined || _notPushCardNumber ===2 ){
+                    if(cb){
+                        cb(null,'push card success');
+                    }
+                    _currentPlayerPushCardList = cards;
+                    sendPlayerPushCard(player,cards);
+                    turnPushCardPlayer();
+                }else {
+                    let result = _carder.compare(cards,_currentPlayerPushCardList);
+                    console.log('对比牌型的大小' + result);
+                    // 对比牌型：result为true是玩家要出的牌型比当前牌型大可以出牌
+                    if(result === true){
+                        if(cb){
+                            cb(null,cardsValue);
+                        }
+                        _currentPlayerPushCardList = cards;
+                        sendPlayerPushCard(player,cards);
+                        turnPushCardPlayer();
+                    }else{ // result === 不合适的牌型str :当前牌小
+                        if(cb){
+                            cb(result);
+                        }
+                    }
                 }
-                _currentPlayerPushCardList = cards;
-                sendPlayerPushCard(player,cards);
-                turnPushCardPlayer();
-            }else {
-
+            }else{
+                if(cb){
+                    cb('不可用牌型');
+                }
             }
+
             
         }
+    };
+    that.playerRequestTips = function (player,cb) {
+        let cardList = player.cards; // 取得玩家身上绑定的手牌
+        if(cb){
+            let cardsList = _carder.getTipsCardsList(_currentPlayerPushCardList,cardList);
+            cb(null,cardsList)
+        }
     }
+    
+    // 某玩家出了什么牌
+    const sendPlayerPushCard = function (player,cards) {
+        _notPushCardNumber = 0;
+        for(let i = 0;i<_playerList.length;i++){
+            _playerList[i].sendPlayerPushCard({
+                accountID:player.accountID,
+                cards:cards
+            })
+        }
+    };
 
 
 

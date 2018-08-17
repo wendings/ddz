@@ -69,8 +69,10 @@ const socket = function () {
     };
     that.requestPlayerPushCard = function (value,cb) {
         request('myself-push-card',value,cb);
-    }
-
+    };
+    that.requestTipsCards = function (cb) {
+        request('request-tips',{},cb);
+    };
     that.notifyReady = function () {
         notify('ready',{},null);
     };

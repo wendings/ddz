@@ -94,6 +94,17 @@ module.exports = function (spec,socket,cbIndex,gameController) {
                     _room.playerRobStateMaster(that,notifyData.data);
                 }
                 break;
+            case 'request-tips':
+                if(_room){
+                    _room.playerRequestTips(that,(err,data)=>{
+                        if(err){
+                            notify('request-tips',{err:err},callBackIndex);
+                        }else{
+                            notify('request-tips',{data:data},callBackIndex);
+                        }
+                    });
+                }
+                break;
             case 'myself-push-card':
                 if(_room){
                     _room.playerPushCard(that,notifyData.data,(err,data)=>{
@@ -105,6 +116,7 @@ module.exports = function (spec,socket,cbIndex,gameController) {
                     });
                 }
                 break;
+
             default:
                 break;
         }
